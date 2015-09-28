@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Sealed: true
+Main-Class: coderslagoon.badpeggy.GUI
+Class-Path: . swt.jar
+Name: coderslagoon/badpeggy/exe/gui
+Specification-Title: BadPeggy Executables
+Specification-Version: 2.1
+Specification-Vendor: CODERSLAGOON
+Implementation-Title: badpeggy.exe
+Implementation-Version: 2.1
+Implementation-Vendor: CODERSLAGOON
+Trusted-Library: true

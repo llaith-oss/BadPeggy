@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>Bad Peggy Documentation</title>
+  <style>
+    a:active  { color:black; }
+    a:link    { color:black; }
+    a:visited { color:black; }
+    body { font-family:Verdana,Geneva,sans-serif; color:black; background-color:white; }
+  </style>
+</head>
+<body>
+
+<h1>Bad Peggy Documentation</h1>
+<div class="ln">&nbsp;</div> 
+<h2>Usage</h2>
+<div>
+Scanning is a simple thing to accomplish:
+<ol>
+<li>Select a folder under <b>File..Scan</b>. Drag and drop files and/or folders into Bad Peggy.</li>
+<li>Wait until the scan has finished. You can stop the scan via <b>File..Stop Scan</b>.</li>
+<li>Check out the potentially damaged files in the list.</li>
+</ol>
+</div>
+
+<h2>Options</h2>
+<div>
+BadPeggy scans all image files in the selected folder(s). If <b>Include Subfolders</b>
+is activated the whole content will be searched, otherwise only the files in the
+actual folder itself.
+<br/><br/>
+By using <b>File Extensions...</b> you can select what files should be considered
+as image files based on their names or extension respectively (as a
+comma-separated list). The default selection is usually sufficient. Capitalization
+does not have to be considered.
+<br/><br/>
+Scanning might be accelerated by using <b>Use all CPU cores</b> if one or more
+multi-core processors are available in the system. In this case Bad Peggy tries
+to keep all cores occupied, yet it also depends on the storage speed how fast
+the actual scan is going to turn out.
+<br/><br/>
+Using <b>Differentiate</b> the messages will get displayed in grayscale fashion,
+which helps to distinguish between the different issues in an easier manner.
+<br/><br/>
+You can switch languages with the <b>Language...</b> menu. At the time of this
+writing German and English were available. 
+</div>
+
+<h2>Post-Scan</h2>
+<div>
+Potentially damaged files show up in the list together with their complete path
+and a description of the issue. By clicking on an entry you can view a particular
+image and check out the actual impact of the damage. The viewer itself can be
+enabled and disabled by double-clicking on it. An external image viewer (or
+whatever is associated with image files) can be started with a double-click on
+a list item. Notice that the list can also be sorted by clicking on the headers
+of the columns.
+<br/><br/>
+Some defects are hardly visible, if at all, for some pictures, while other ones
+might not be presentable at all. If you want to remove an entry from the list
+because you consider the image still to be usable then simply mark it an press
+the [Del] button. The entry goes away yet the physical file won't be touched.
+<br/><br/>
+Not ever defect reported is a reason to delete an image. If you actually want to
+remove though then open the context menu with a right-click. You can then click
+on <b>Delete</b> to remove the file permanently. You can also move the selected
+files to a different location with the <b>Move...</b> entry. Drag and drop of
+the selected to an external file manager is also supported - there you can move
+or copy. And with <b>Export List...</b> you can create a text file at the
+location of your choice with the full paths of all of the selected files, which
+you can then use further e.g. in a shell script. 
+<br/><br/>
+The context menu also offers general operations like <b>Clear List</b> or
+<b>Select All</b>.
+</div>
+
+<div class="ln">&nbsp;</div>
+
+<h2>Remarks</h2>
+<div>
+Bad Beggy uses the Java Image IO (JIIO) library to examine image files.
+Its decoder emits warnings and errors while an image gets loaded. Thus the
+results do depend on it being up-to-date and also its changes in functionality.
+Bad Peggy checks though on startup if in general, well-known errors in images do
+get detected, i.e. if JIIO is still functioning in detecting damaged images as
+expected.
+
+What "damaged" truly means depends and can be
+<ul>
+<li>small difference from the official format, e.g. extra data appended after the
+actual image.</li>
+<li>non-critical issues like unknown values, which do not affect displaying the
+image at all.</li>
+<li>minor damage which only disturb smaller parts of the image.</li>
+<li>major damage, which causes the display to be corrupted after a particular position.</li>
+<li>completely truncated or i.e. incomplete images.</li>
+<li>errors at the beginning of the files, so that decoding can't even commence.</li>
+<li>files with are not images at all, but accidentally carry the file extension.</li>
+<li>image files which don't get recognized b the JIIO, but can be processed by
+other image viewers, e.g. if additional information is stored before the image
+data starts (which smarter or more aggressive decoders then skip).</li>
+<li>an image which looks damaged because it got loaded as such, and saved again
+in another application - and thus is structurally fine.</li>
+<li>an image which is logically damaged but does not cause complains by the JIIO,
+although the flaws are clearly visible - this is one of the most problematic
+cases, since such files won't be detected by Bad Peggy - detection for such
+problems is difficult, you can compare this with a text editor loading and
+displaying a file with the word "text pr{cessor" in the, where the 'a' to '{'
+change was caused by a faulty transmission but the text still makes sense to
+the editor itself.
+</li>
+</ul> 
+In general it is not recommended to just discard every image reported as damaged
+but to check out if repairing or re-saving the file in other applications into
+a generally valid image format is possible.
+</div>
+
+<div class="ln">&nbsp;</div>
+<div class="cr">
+<i><a style="text-decoration:none" href="http://www.coderslagoon.com/">Copyright 2005-2015 CODERSLAGOON</a></i>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+  <title>Bad Peggy Dokumentation</title>
+  <style>
+    a:active  { color:black; }
+    a:link    { color:black; }
+    a:visited { color:black; }
+    body { font-family:Verdana,Geneva,sans-serif; color:black; background-color:white; }
+  </style>
+</head>
+<body>
+
+<h1>Bad Peggy Dokumentation</h1>
+<div class="ln">&nbsp;</div> 
+<h2>Bedienung</h2>
+<div>
+Der eigentliche Scan-Vorgang ist von einfacher Natur:
+<ol>
+<li>Unter <b>Datei..Scannen</b> einen Ordner auswählen. Oder direkt Ordner und/oder
+    Dateien auf Bad Peggy ziehen und ablegen.</li>
+<li>Auf Abschluss des Scan-Vorgangs warten. Bei Bedarf unter <b>Datei..Scan stoppen</b>.</li>
+<li>Beschädigte oder irreguläre Dateien in der Liste inspizieren.</li>
+</ol>
+</div>
+
+<h2>Optionen</h2>
+<div>
+Bad Peggy scannt alle Bilddateien im ausgewählten Ordner. Falls die Option <b>Unterverzeichnisse
+miteinschliessen</b> aktiviert ist so wird der gesamte Inhalt des Ordners
+durchsucht, ansonsten nur die Dateien im Ordner selbst.
+<br/><br/>
+Mit <b>Dateitypen...</b> können Sie Endungen (komma-getrennt) der Dateien
+eingeben welche in der Suche für Bilddateien verwendet werden. Die
+ursprüngliche Auswahl ist meistens ausreichend. Groß- oder Kleinschreibung
+spielt keine Rolle.
+<br/><br/>
+Der Scanvorgang kann durch <b>Alle Prozessorkerne verwenden</b> beschleunigt
+werden, falls ein Multikernprozessor verfügbar ist. In diesem Fall versucht
+Bad Peggy alle Kerne auszulasten, es hängt allerdings auch von der Geschwindigkeit
+des Speichermediums ab wie schnell am Ende gescannt werden kann.
+<br/><br/>
+Mittels <b>Differenzieren</b> werden die Meldungen entsprechend ihrer Bedeutung
+durch verschiedene Graustufen dargestellt, was zur besseren Unterscheidbarkeit beiträgt.
+<br/><br/>
+Mit <b>Sprache...</b> kann die Benutzeroberfläche von Bad Peggy dynamisch
+zwischen verschiedenen Sprachen (z.Zt. Englisch und Deutsch) umgeschaltet werden. 
+</div>
+
+<h2>Nachbearbeitung</h2>
+<div>
+Falls potenziell beschädigte Dateien gefunden werden, so werden deren komplette
+Pfade und eine Beschreibung des Problems in der Liste angezeigt. Durch Klicken
+auf einen Eintrag können Sie sich das Bild anzeigen lassen, falls dies möglich
+ist. Dadurch kann die eigentliche Auswirkung der Beschädigung untersucht werden.
+Der Betrachter kann durch einen Doppelklick deaktiviert und später wieder
+aktiviert werden. Ein externer Bildbetrachter (oder was auch immer mit
+Bilddateien im System verknüpft ist) wird durch einen Doppelklick auf einen
+Listeneintrag gestartet. Die Liste kann zudem durch Klicken auf die
+Spaltenüberschriften sortiren werden.
+<br/><br/>
+Bei manchen Bildern fällt ein Defekt dem Auge nicht auf, während andere
+nicht einmal ansatzweise darstellbar sind. Falls Sie einen Eintrag aus der 
+Liste entfernen wollen, z.B. weil die Bilddatei im ganzen noch brauchbar ist,
+so markieren Sie einfach den Eintrag und drücken Sie die [Entf] Taste. Dadurch
+verschwindet der Eintrag, die zugehörige Datei bleibt jedoch erhalten.   
+<br/><br/>
+Nicht jeder Defekt ist ein Grund ein Bild zu löschen. Sollten Sie sich
+aber dennoch dafür entscheiden, dann wählen Sie die gewünschten Einträge aus und
+klicken sie mit der rechten Maustaste an. Im erscheinenden Kontextmenü können
+Sie mit <b>Löschen</b> die Dateien unwiderruflich entfernen. Im selben
+Menü können Sie zudem die Dateien mit <b>Verschieben...</b> in einen separaten
+Ordner isolieren. Ziehen und Ablegen in einen externen Dateimanager wird
+ebenfalls unterstützt, hierbei kann verschoben oder auch kopiert werden.
+Und mit <b>Liste exportieren...</b> ist es möglich eine Textdatei mit den Pfaden
+der Dateien erstellen, die dann zum Beispiel in einem Shell-Skript weiterverarbeitet
+werden kann.
+<br/><br/>
+Im Kontextmenü sind zudem allgemeine Operationen wie <b>Liste leeren</b> und
+<b>Alles auswählen</b> verfügbar.
+</div>
+
+<div class="ln">&nbsp;</div>
+
+<h2>Anmerkungen</h2>
+<div>
+Bad Peggy verwendet die Java Image IO (JIIO) Bibliothek um Bilddateien
+zu untersuchen. Deren Decoder zeigt beim Laden Warnungen oder Fehlermeldungen an.
+Damit ist das Ergebnis von der Aktualität und eventuellen Veränderungen dieser
+Funktionalität abhängig. Bad Peggy prüft beim Start ob generell Fehler in
+Bilddateien erkannt werden können, oder in anderen Worten ob JIIO wie erwartet
+funktioniert.
+
+Was genau "beschädigt" bedeutet ist je nach Fall entweder 
+<ul>
+<li>kleine harmlose Abweichungen von der Norm, z.B. zusätzliche Daten nach dem
+eigentlichen Bild</li>
+<li>nicht-kritische strukturelle Problem, z.B. unbekannte Werte, was jedoch der
+eigentlichen Darstellung nicht schadet</li>
+<li>minimale Beschädigungen, die nur einen kleinen Teil des Bildes stören</li>
+<li>gröbere Fehler, welche ab einem bestimmten Punkt das Bild stark verzerren</li>
+<li>komplette abgeschnittene bzw. unvollständige Dateien</li>
+<li>Fehler am Anfang der Datei, sodass mit der Dekodierung gar nicht erst
+begonnen werden kann</li>
+<li>Dateien, die gar keine Bilddateien sind, sondern aus unbekannten Gründen
+nur die Datei-Endung tragen</li>
+<li>Bilddateien die von der JIIO nicht erkannt werden, in anderen Bildbetrachtern
+allerdings funktionieren, z.B. wenn vor den Bild-Daten zusätzliche Informationen
+gespeichert sind (über welche dann "schlauere" Dekoder gnädig hinwegsehen)</li>
+<li>eine visuell beschädigte Datei, die jedoch von einem anderen Programm
+bereits beschädigt geladen und erneut gespeichert wurde und damit technisch
+einwandfrei ist</li>
+<li>eine logisch beschädigte Datei die JIIO nicht bemängelt, obwohl sie sichtbar
+inkorrekt ist - dies sind die problematischsten Fälle, da Bad Peggy sie nicht
+anzeigt - Fehlererkennung hier ist jedoch schwierig, vergleichbar mit einem
+Texteditor welcher eine Datei mit dem Text "Bildbe}rbeitung" problemlos lädt
+und eben keine Möglichkeit hat um Fehler wie '}' anstatt 'a' zu erkennen.
+</li>
+</ul> 
+ 
+Im Allgemeinen empfiehlt es sich nicht alle scheinbar beschädigten Dateien zu
+verwerfen, sondern zu prüfen ob eine Reparatur oder erneute Speicherung in
+anderen Programmen in ein allgemein gültiges Bildformat möglich ist.
+</div>
+
+<div class="ln">&nbsp;</div>
+<div class="cr">
+<i><a style="text-decoration:none" href="http://www.coderlagoon.com/">Copyright 2005-2015 CODERSLAGOON</a></i>
+</div>
+
+</body>
+</html>
